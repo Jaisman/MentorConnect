@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
-import {FaChartArea, FaChartPie, FaChartLine, FaCode, FaCircle, FaTrophy, FaBook, FaCheck, FaCheckCircle} from 'react-icons/fa'
+import {FaChartLine, FaCode, FaCircle, FaTrophy, FaBook, FaCheck, FaCheckCircle} from 'react-icons/fa'
 export default function Feedback() {
   return (
     <div>

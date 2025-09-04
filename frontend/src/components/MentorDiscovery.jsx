@@ -1,7 +1,8 @@
-import React from 'react'
+import {useNavigate} from 'react-router-dom'
 import {FaStar} from 'react-icons/fa'
 import Navbar from './Navbar'
 export default function MentorDiscovery() {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="min-h-screen bg-gray-50">
@@ -97,7 +98,7 @@ export default function MentorDiscovery() {
                   <div className="text-lg font-bold text-gray-900">
                     ${i === 1 ? '120' : i === 2 ? '150' : i === 3 ? '180' : i === 4 ? '140' : i === 5 ? '200' : '160'}/session
                   </div>
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition" onClick={()=>{navigate('/book')}}>
                     Book Session
                   </button>
                 </div>
