@@ -3,7 +3,11 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const UserSchema = new Schema({
-  role: { type: String, enum: ['student', 'mentor', 'admin'], required: true },
+  role: { type: String, 
+    enum: ['student', 'mentor'],
+    default: 'student',
+     required: true
+     },
 
   // Common fields
   fullName: { type: String, required: true },
@@ -23,15 +27,6 @@ const UserSchema = new Schema({
       description: String,
     },
   ],
-  education: [
-    {
-      school: String,
-      degree: String,
-      field: String,
-      startYear: Number,
-      endYear: Number,
-    },
-  ],
   hourlyRate: Number,
   availability: [
     {
@@ -47,7 +42,6 @@ const UserSchema = new Schema({
   // Student-specific fields
   targets: [{ company: String, role: String }],
   skills: [String],
-  learningPath: [{ skill: String, status: { type: String, enum: ['todo','in-progress','done'] } }],
 
 }, { timestamps: true });
 
