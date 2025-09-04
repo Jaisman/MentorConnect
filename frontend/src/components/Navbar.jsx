@@ -1,6 +1,9 @@
-import React from 'react'
-
+import React, {useState} from 'react'
+import { FaBrain, FaUser } from 'react-icons/fa'
+import {useNavigate} from 'react-router-dom'
 export default function Navbar() {
+      const [userType, setUserType] = useState('student');
+      const navigate = useNavigate();
   return (
     <div>
        <nav className="bg-white shadow-lg border-b">
@@ -9,13 +12,13 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <Brain className="w-5 h-5 text-white" />
+                <FaBrain className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-800">PrepMaster</span>
             </div>
             <div className="hidden md:flex space-x-8">
               <button 
-                onClick={() => setCurrentPage('dashboard')}
+                onClick={() => navigate('/stu')}
                 className="text-gray-600 hover:text-blue-600 transition"
               >
                 Dashboard
@@ -25,6 +28,7 @@ export default function Navbar() {
                 className="text-gray-600 hover:text-blue-600 transition"
               >
                 {userType === 'student' ? 'Find Mentors' : 'My Students'}
+                
               </button>
               <button 
                 onClick={() => setCurrentPage('interviews')}
@@ -50,7 +54,7 @@ export default function Navbar() {
               <option value="mentor">Mentor</option>
             </select>
             <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-              <User className="w-5 h-5" />
+              <FaUser className="w-5 h-5" />
             </div>
           </div>
         </div>
